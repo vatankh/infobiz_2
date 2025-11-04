@@ -14,7 +14,7 @@ CVE-2018-7600 - критическая уязвимость удаленного
 docker-compose up -d
 ```
 
-[screenshot_docker_compose_up]
+[1.png]
 
 ### 2. Установка Drupal
 - Открыть `http://localhost:8080` в браузере

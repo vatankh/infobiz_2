@@ -75,7 +75,6 @@ form_id=user_register_form&_drupal_ajax=1&mail[#post_render][]=exec&mail[#type]=
 services:
   web:
     image: drupal:8.5.1
-    platform: linux/amd64
     ports:
       - "8080:80"
     environment:
@@ -84,11 +83,10 @@ services:
       - drupal_data:/var/www/html/sites/default/files
     command: >
       sh -c "
-        mkdir -p /var/www/html/sites/default/files &&
         chown -R www-data:www-data /var/www/html/sites/default/files &&
-        chmod -R 755 /var/www/html/sites/default/files &&
-        exec apache2-foreground
+        apache2-foreground
       "
+    user: root
 
 volumes:
   drupal_data:
@@ -136,7 +134,6 @@ Content-Type: application/json
 services:
   web:
     image: drupal:8.5.1
-    platform: linux/amd64
     ports:
       - "8080:80"
     environment:
@@ -145,11 +142,10 @@ services:
       - drupal_data:/var/www/html/sites/default/files
     command: >
       sh -c "
-        mkdir -p /var/www/html/sites/default/files &&
         chown -R www-data:www-data /var/www/html/sites/default/files &&
-        chmod -R 755 /var/www/html/sites/default/files &&
-        exec apache2-foreground
+        apache2-foreground
       "
+    user: root
 
 volumes:
   drupal_data:

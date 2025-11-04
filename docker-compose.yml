@@ -1,1 +1,19 @@
 
+services:
+  web:
+    image: drupal:8.5.1
+    ports:
+      - "8080:80"
+    environment:
+      - DRUPAL_DATABASE_DRIVER=sqlite
+    volumes:
+      - drupal_data:/var/www/html/sites/default/files
+    command: >
+      sh -c "
+        chown -R www-data:www-data /var/www/html/sites/default/files &&
+        apache2-foreground
+      "
+    user: root
+
+volumes:
+  drupal_data:

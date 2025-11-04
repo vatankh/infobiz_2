@@ -47,7 +47,6 @@ form_id=user_register_form&_drupal_ajax=1&mail[#post_render][]=exec&mail[#type]=
 
 ![screenshot_exploit_success](./5.png)
 
-![screenshot_exploit_success](./6.png)
 ## Анализ Root Cause
 
 ### Причина уязвимости
@@ -112,7 +111,7 @@ Content-Type: application/json
 [{"command":"insert","method":"replaceWith","selector":null,"data":"\u003Cspan class=\u0022ajax-new-content\u0022\u003E\u003C\/span\u003E","settings":null}]
 ```
 
-![screenshot_fixed_response](./7.png)
+![screenshot_exploit_success](./6.png)
 
 ### Анализ результатов
 - **Статус**: 200 OK (нормальная обработка запроса)
